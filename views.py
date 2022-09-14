@@ -20,7 +20,7 @@ class BaseView:
         }
 
 
-# Разделы сайта
+# Разделы сайта.
 class Index(BaseView):
     def __call__(self, request):
         self.context['info'] = 'Информация о нашей компании.'
