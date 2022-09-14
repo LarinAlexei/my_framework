@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПодборАвто</title>
+</head>
+
+<body>
+    <div class="app">
+        <div class="container">
+            <div class="header sticky">
+                <div class="logo">
+                    <span>ПодборАвто</span>
+                </div>
+                <div class="header_nav">
+                    <a href="expertize.html" class="link_header">Экспертиза</a>
+                    <a href="onsite_examination" class="link_header">Выездная экспертиза</a>
+                </div>
+                <div class="search_nav">
+                    <img src="garaj.jpg" alt="">
+                </div>
+                <div class="klient_block">
+                    <a href="index" class="link_header">Есть в наличие</a>
+                </div>
+            </div>
+            <div class="available_items">
+                {% for item in context.data %}
+                <div class="available">
+                    <div class="top_available">
+                        <div class="info_available">
+                            <span class="title_available">{{ item.title }}</span>
+                            <span class="address_available">Находится в офисе по адресу: {{ item.address }}</span>
+                            <div class="info_car">
+                                <div class="info_car_left">
+                                    <table class="table_in_available">
+                                        <tr>
+                                            <td style="width: 160px">О модели:</td>
+                                            <td>{{ item.main_info.type }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Объем и мощность мотора, см³:</td>
+                                            <td>{{ item.main_info.engine_size }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Привод:</td>
+                                            <td>{{ item.main_info.drive_unit }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Комплектация:</td>
+                                            <td>{{ item.main_info.note }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="info_obj_right">
+                                    <table class="table_in_available">
+                                        <tr>
+                                            <td style="width: 160px">Владельцев:</td>
+                                            <td>{{ item.oper_info.number_of_owners }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Год выпуска:</td>
+                                            <td>{{ item.oper_info.year }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
